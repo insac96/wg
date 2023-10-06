@@ -1,0 +1,44 @@
+@import reponsize.sass
+@import utils.sass
+@import anim.sass
+@import color.sass
+
+*
+  margin: 0
+  padding: 0
+  outline: none
+  box-sizing: border-box
+  // user-select: none
+  -webkit-tap-highlight-color: transparent !important
+
+html, body, #app
+  min-height: 100%
+  height: 100%
+
+html
+  font-size: 18px
+  @include mobile
+    font-size: 15px
+
+body
+  background: rgb(var(--ui-background))
+  background-attachment: fixed
+  color: rgba(var(--ui-text), 1)
+  font-family: 'Quicksand'
+  font-weight: 400
+  font-size: 0.95rem
+
+button, input
+  font-family: inherit
+  border: none
+
+input
+  user-select: auto !important
+input::-webkit-outer-spin-button, input::-webkit-inner-spin-button
+  -webkit-appearance: none
+  margin: 0
+input[type=number]
+  -moz-appearance: textfield
+
+img
+  pointer-events: none

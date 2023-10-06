@@ -1,0 +1,135 @@
+:root
+  --header: 60px
+  --menu: 55px
+  --footer: 50px
+  --space: 12px
+  --radius: 0.5rem
+  --size: 38px
+
+@for $i from 0 through 5
+  .mt-#{$i}
+    margin-top: calc(var(--space) * ($i / 2))
+  .mt-#{$i}
+    margin-top: calc(var(--space) * ($i / 2))
+  .mb-#{$i}
+    margin-bottom: calc(var(--space) * ($i / 2))
+  .ml-#{$i}
+    margin-left: calc(var(--space) * ($i / 2))
+  .mr-#{$i}
+    margin-right: calc(var(--space) * ($i / 2))
+  .my-#{$i}
+    margin-top: calc(var(--space) * ($i / 2))
+    margin-bottom: calc(var(--space) * ($i / 2))
+  .mx-#{$i}
+    margin-left: calc(var(--space) * ($i / 2))
+    margin-right: calc(var(--space) * ($i / 2))
+  .ma-#{$i}
+    margin: calc(var(--space) * ($i / 2))
+
+  .pt-#{$i}
+    padding-top: calc(var(--space) * ($i / 2))
+  .pt-#{$i}
+    padding-top: calc(var(--space) * ($i / 2))
+  .pb-#{$i}
+    padding-bottom: calc(var(--space) * ($i / 2))
+  .pl-#{$i}
+    padding-left: calc(var(--space) * ($i / 2))
+  .pr-#{$i}
+    padding-right: calc(var(--space) * ($i / 2))
+  .py-#{$i}
+    padding-top: calc(var(--space) * ($i / 2))
+    padding-bottom: calc(var(--space) * ($i / 2))
+  .px-#{$i}
+    padding-left: calc(var(--space) * ($i / 2))
+    padding-right: calc(var(--space) * ($i / 2))
+  .pa-#{$i}
+    padding: calc(var(--space) * ($i / 2))
+
+.ml-auto
+  margin-left: auto !important
+.mr-auto
+  margin-right: auto !important
+
+.mt-0
+  margin-top: 0 !important
+.mb-0
+  margin-bottom: 0 !important
+.ml-0
+  margin-left: 0 !important
+.mr-0
+  margin-right: 0 !important
+.mx-0
+  margin-left: 0 !important
+  margin-right: 0 !important
+.my-0
+  margin-top: 0 !important
+  margin-bottom: 0 !important
+.ma-0
+  margin: 0 !important
+
+.pt-0
+  padding-top: 0 !important
+.pb-0
+  padding-bottom: 0 !important
+.pl-0
+  padding-left: 0 !important
+.pr-0
+  padding-right: 0 !important
+.px-0
+  padding-left: 0 !important
+  padding-right: 0 !important
+.py-0
+  padding-top: 0 !important
+  padding-bottom: 0 !important
+.pa-0
+  padding: 0 !important
+
+.uppercase
+  text-transform: uppercase
+
+.capitalize
+  text-transform: capitalize
+
+.select-all
+  user-select: all !important
+  cursor: pointer
+  *
+    user-select: all !important
+
+.box-resize
+  margin: calc(var(--space) / 2)
+  width: calc(100% / 3 - var(--space)) !important
+  @include desktop
+    width: calc(100% / 4 - var(--space)) !important
+
+.box-resize-scroll
+  margin-right: calc(var(--space) / 2)
+  width: calc(100% / 3 - var(--space)) !important
+  @include desktop
+    width: calc(100% / 4 - var(--space)) !important
+  &:last-child
+    margin-right: 0
+
+.box-resize-50
+  width: calc(100%) !important
+  margin: calc(var(--space) / 2)
+  @include desktop
+    width: calc(100% / 2 - var(--space)) !important
+
+.box-resize-33
+  width: calc(100%) !important
+  margin: calc(var(--space) / 2)
+  @include desktop
+    width: calc(100% / 3 - var(--space)) !important
+
+.box-resize-20-50
+  width: calc(100% / 2 - var(--space)) !important
+  margin: calc(var(--space) / 2)
+  @include desktop
+    width: calc(100% / 5 - var(--space)) !important
+
+.pointer
+  cursor: pointer
+
+.disabled
+  pointer-events: none

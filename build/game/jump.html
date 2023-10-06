@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jump</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.1/jquery.min.js"></script>
+</head>
+<body>
+  <script>
+    function getCookie (cookieName) {
+      let name = cookieName + "=";
+      let decodedCookie = decodeURIComponent(document.cookie);
+      let ca = decodedCookie.split(';');
+      for(let i = 0; i <ca.length; i++) {
+        let c = ca[i];
+        while (c.charAt(0) == ' ') {
+          c = c.substring(1);
+        }
+        if (c.indexOf(name) == 0) {
+          return c.substring(name.length, c.length);
+        }
+        
+      }
+      return "";
+    }
+    
+    // Chức năng xác thực tài khoản trước khi vào trò chơi
+    function checkUserAPI () {
+      $.post('/api/index.php', {
+        action: 'getUser',
+        token: getCookie('token')
+      }, function(response){
+        var res = JSON.parse(response);
+        if(res.code != 200) return alert(res.msg);
+        var dataJSON = res.data;
+        var user = dataJSON.account;
+
+        // Sau khi xác thực, mỗi trò chơi sẽ có đường dẫn đến source game khác nhau, thay đổi nó tại đây
+        // Dưới đây là ví dụ về code của Tru Tiên H5
+        //window.location.href = "/game/play.html?local=3&uid="+user;
+      })
+    }
+
+    checkUserAPI();
+
+    // Xử lý chức năng nhấp vào gói nạp trong game sẽ hiển thị hộp thoại mua
+    // Thêm đoạn mã trong chức năng phía dưới vào function khi nhấp vào gói nạp trong source game
+    function askPayAPI () {
+      var askpay = { recharge_id: 14, server_id: 'sf1' };
+      var event = new CustomEvent('ask_pay', { detail: JSON.stringify(askpay) })
+      window.parent.document.dispatchEvent(event)
+    }
+
+    // Xử lý chức năng nhận dữ liệu đăng nhập của người chơi cho từng máy chủ
+    // Thêm đoạn mã trong chức năng phía dưới vào function bắt đầu vào bản đồ trong source game
+    function loginGameAPI () {
+      var logingame = { server_id: 'sf1' };
+      var event = new CustomEvent('login_game', { detail: JSON.stringify(logingame) })
+      window.parent.document.dispatchEvent(event)
+    }
+  </script>
+</body>
+</html>
